@@ -4,15 +4,15 @@ IndifferentEval
 When you're making a Ruby DSL, you often have to decide between:
 
     MyApp.config do |config|
-      config.verbosity = true
-      config.foo       = :bar
+      config.verbosity true
+      config.foo       :bar
     end
 
 and:
 
     MyApp.config do
-      verbosity = true
-      foo       = :bar
+      verbosity true
+      foo       :bar
     end
 
 Wouldn't it be nice if you could support both?  That's what IndifferentEval is for!
