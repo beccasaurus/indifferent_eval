@@ -1,3 +1,0 @@
-= IndifferentEval
-
-description coming soon ... this is mainly just for testing, at the moment, for an upcoming screencast ...
