@@ -3,17 +3,25 @@ Indifferent Eval
 
 When you're making a Ruby DSL, you often have to decide between:
 
-    MyApp.config do |config|
-      config.verbosity true
-      config.foo       :bar
-    end
+```ruby
+# Use a block variable to access the MyConfig instance.
+# This gives you the benefit of having access to the outer "self" inside of the block.
+MyApp.config do |config|
+  config.verbosity true
+  config.foo       :bar
+end
+```
 
 and:
 
-    MyApp.config do
-      verbosity true
-      foo       :bar
-    end
+```ruby
+# Don't pass a block variable.  All method calls are sent to the MyConfig instance.
+# This has the benefit of looking really clean (but no access to "self" inside the block).
+MyApp.config do
+  verbosity true
+  foo       :bar
+end
+```
 
 There are a number of pros and cons to each of these approaches.
 
@@ -22,8 +30,10 @@ Wouldn't it be nice if you could support both?  That's what `#indifferent_eval` 
 Install
 -------
 
-    # In your Gemfile
-    gem "indifferent_eval"
+```ruby
+# In your Gemfile
+gem "indifferent_eval"
+```
 
 Usage
 -----
