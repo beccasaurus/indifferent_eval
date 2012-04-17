@@ -35,6 +35,23 @@ Install
 gem "indifferent_eval"
 ```
 
+The Code
+--------
+
+The code is tiny.  This gem exists only for convenience.  Also see the [annotated version](https://github.com/remi/indifferent_eval/blob/master/lib/indifferent_eval/module.rb).
+
+```ruby
+module IndifferentEval
+  def indifferent_eval(object_to_eval_on = self, &block)
+    if block.arity == 0 || block.arity == -1
+      object_to_eval_on.instance_eval &block
+    else  
+      block.call object_to_eval_on
+    end
+  end
+end
+```
+
 Usage
 -----
 
