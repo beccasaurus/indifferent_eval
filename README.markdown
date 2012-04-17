@@ -38,7 +38,7 @@ gem "indifferent_eval"
 The Code
 --------
 
-The code is tiny.  This gem exists only for convenience.  Also see the [annotated version](https://github.com/remi/indifferent_eval/blob/master/lib/indifferent_eval/module.rb).
+The code is tiny.  This gem exists only for convenience.
 
 ```ruby
 module IndifferentEval
@@ -50,7 +50,9 @@ module IndifferentEval
     end
   end
 end
-```
+```  
+
+([Annotated source code](https://github.com/remi/indifferent_eval/blob/master/lib/indifferent_eval/module.rb))
 
 Usage
 -----
