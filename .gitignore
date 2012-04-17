@@ -1,2 +1,5 @@
 *.sw?
 *.gem
+
+# Ignore Gemfile.lock because RubyGems doesn't know about versions
+Gemfile.lock

@@ -1,6 +1,5 @@
-require File.dirname(__FILE__) + '/../lib/indifferent_eval'
-require 'rubygems'
-require 'spec'
+require 'indifferent_eval'
+require 'rspec'
 
 # sample configuration object
 class SampleConfig
