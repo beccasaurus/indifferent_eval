@@ -98,7 +98,7 @@ If you don't want to include IndifferentEval into `Object`, you don't have to.
 require "indifferent_eval/module"
 ```
 
-If you only want to "indifferent_eval" certain types of objects:
+If you only want to call `#indifferent_eval"` on certain types of objects, you could ...
 
 ```ruby
 class Configuration
@@ -108,8 +108,8 @@ end
 Configuration.new.indifferent_eval(&block)
 ```
 
-If you want to call #indifferent_eval on different objects from 1 class in particular, 
-indifferent takes an argument for the object to evaluate, so you can use it like this:
+Or, if you want to call `#indifferent_eval` on different types objects, 
+`#indifferent_eval` takes an argument for the object to evaluate, so you could ...
 
 ```ruby
 class MyClass
