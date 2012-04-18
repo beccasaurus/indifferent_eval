@@ -90,7 +90,7 @@ end
 
 ## But I don't want every Ruby object to be extended with this!
 
-If you don't want to include IndifferentEval into all Ruby `Object`s, you don't have to.
+If you don't want to include IndifferentEval into `Object`, you don't have to.
 
 ```ruby
 # This simply requires the IndifferentEval module without 
