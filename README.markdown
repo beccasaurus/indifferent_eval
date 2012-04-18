@@ -88,6 +88,42 @@ MyLibrary.config do
 end
 ```
 
+## But I don't want every Ruby object to be extended with this!
+
+If you don't want to include IndifferentEval into all Ruby `Object`s, you don't have to.
+
+```ruby
+# This simply requires the IndifferentEval module without 
+# automatically icluding the module into any classes.
+require "indifferent_eval/module"
+```
+
+If you only want to "indifferent_eval" certain types of objects:
+
+```ruby
+class Configuration
+  include IndifferentEval
+end
+
+Configuration.new.indifferent_eval(&block)
+```
+
+If you want to call #indifferent_eval on different objects from 1 class in particular, 
+indifferent takes an argument for the object to evaluate, so you can use it like this:
+
+```ruby
+class MyClass
+  include IndifferentEval
+
+  def do_something
+    indifferent_eval some_object, &some_block
+    indifferent_eval another_object, &another_block
+  end
+end
+```
+
+Nothing magical  :)
+
 ## License
 
 indifferent_eval is released under the MIT license.
