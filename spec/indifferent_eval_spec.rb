@@ -31,12 +31,18 @@ end
 
 describe 'indifferent_eval' do
 
+  before do
+    # Some instance variables to test the scope of blocks
+    @hello = "Hello"
+    @there = "There"
+  end
+
   it 'should work with a block variable' do
     App.config.value = nil
     App2.value.should == nil
 
     App.configure do |config|
-      config.set_value 'Hello'
+      config.set_value @hello
     end
 
     App.config.value.should == 'Hello'
@@ -47,7 +53,7 @@ describe 'indifferent_eval' do
     App2.value.should == nil
 
     App.configure do
-      set_value 'Hello'
+      set_value "Hello#{@hello}" # @hello is nil (scoped to config)
     end
 
     App.config.value.should == 'Hello'
@@ -58,12 +64,12 @@ describe 'indifferent_eval' do
     App2.value.should == nil
 
     App2.configure do |c|
-      c.set_value 'Hello'
+      c.set_value @hello
     end
     App2.value.should == 'Hello'
 
     App2.configure do |c|
-      c.value = 'There'
+      c.value = @there
     end
     App2.value.should == 'There'
   end
@@ -73,12 +79,12 @@ describe 'indifferent_eval' do
     App2.value.should == nil
 
     App2.configure do
-      set_value 'Hello'
+      set_value "Hello#{@hello}" # @hello is nil (scoped to config)
     end
     App2.value.should == 'Hello'
 
     App2.configure do
-      self.value = 'There'
+      self.value = "There#{@there}" # @there is nil (scoped to config)
     end
     App2.value.should == 'There'
   end
